@@ -12,13 +12,15 @@ const IndexPage: React.FunctionComponent = () => {
         <Link href="/about">
           <a>About</a>
         </Link>
+      </p>
+      <p>
         <Link href="/list-class">
           <a>List Class</a>
         </Link>
-        <Link href="/list-fc">
-          <a>List Fc</a>
-        </Link>
       </p>
+      <Link href="/list-fc">
+        <a>List Fc</a>
+      </Link>
       <div>
         <Mutation
           mutation={gql`

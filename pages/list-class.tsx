@@ -9,7 +9,7 @@ type Props = {
 };
 
 class ListClass extends React.Component<Props> {
-  static async getInitialProps({ pathname }: NextContext) {
+  static async getInitialProps({ pathname, query }: NextContext) {
     // Example for including initial props in a Next.js page.
     // Don't forget to include the respective types for any
     // props passed into the component
@@ -19,7 +19,7 @@ class ListClass extends React.Component<Props> {
       { id: 103, name: "jill" },
       { id: 104, name: pathname }
     ];
-
+    console.log(query);
     return { items: dataArray };
   }
 

@@ -1,15 +1,22 @@
-import * as React from "react";
+import { NextFunctionComponent, NextContext } from "next";
 import Link from "next/link";
 
-const AboutPage: React.FunctionComponent = () => (
-  <>
-    <p>This is the about page</p>
-    <p>
-      <Link href="/">
-        <a>Go home</a>
-      </Link>
-    </p>
-  </>
-);
+const AboutPage: NextFunctionComponent = () => {
+  return (
+    <>
+      <p>This is the about page</p>
+      <p>
+        <Link href="/">
+          <a>Go home</a>
+        </Link>
+      </p>
+    </>
+  );
+};
+
+AboutPage.getInitialProps = async ({ query }: NextContext) => {
+  console.log(query);
+  return { query };
+};
 
 export default AboutPage;
