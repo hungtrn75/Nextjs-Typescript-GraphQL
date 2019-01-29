@@ -1,8 +1,8 @@
-import * as React from "react";
-import Link from "next/link";
-import { Tag, Button } from "antd";
-import { Mutation } from "react-apollo";
+import { Button, Tag } from "antd";
 import { gql } from "apollo-boost";
+import Link from "next/link";
+import * as React from "react";
+import { Mutation } from "react-apollo";
 
 const IndexPage: React.FunctionComponent = () => {
   return (

@@ -1,6 +1,5 @@
-import React from "react";
 import { NextContext } from "next";
-
+import React from "react";
 import List from "../components/List";
 import IDataObject from "../interfaces";
 

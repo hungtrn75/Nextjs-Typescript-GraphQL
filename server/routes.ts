@@ -1,5 +1,7 @@
-const nextRoutes = require("next-routes");
-const routes = nextRoutes();
+import Routes, * as createRoutes from "next-routes";
+
+// @ts-ignore
+const routes: Routes = createRoutes();
 
 // routes.add(name, 'url', 'folder-name/file-name')
 
@@ -14,4 +16,6 @@ routes.add("about", "/about", "/about");
 // routes.add('edit_product', '/products/:id/edit', 'products/edit')
 // routes.add('create_product', '/products/create', 'products/create')
 
-module.exports = routes;
+export default routes;
+export const Link = routes.Link;
+export const Router = routes.Router;

@@ -1,4 +1,4 @@
-import { NextFunctionComponent, NextContext } from "next";
+import { NextContext, NextFunctionComponent } from "next";
 import Link from "next/link";
 
 const AboutPage: NextFunctionComponent = () => {

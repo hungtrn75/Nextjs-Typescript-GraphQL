@@ -1,9 +1,9 @@
+// @ts-ignore
+import NProgress from "next-nprogress/component";
 import App, { Container } from "next/app";
 import Head from "next/head";
 import { ApolloProvider } from "react-apollo";
 import withApollo from "../lib/withApollo";
-// @ts-ignore
-import NProgress from "next-nprogress/component";
 
 class MyApp extends App<any> {
   render() {

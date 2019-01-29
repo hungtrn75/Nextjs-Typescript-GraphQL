@@ -1,4 +1,4 @@
-import { NextFunctionComponent, NextContext } from "next";
+import { NextContext, NextFunctionComponent } from "next";
 import List from "../components/List";
 import IDataObject from "../interfaces";
 
@@ -12,7 +12,7 @@ const ListFunction: NextFunctionComponent<Props> = ({ items }) => (
   </>
 );
 
-ListFunction.getInitialProps = async ({ pathname, req }: NextContext) => {
+ListFunction.getInitialProps = async ({ pathname, query }: NextContext) => {
   // Example for including initial props in a Next.js function compnent page.
   // Don't forget to include the respective types for any props passed into
   // the component.
@@ -22,7 +22,7 @@ ListFunction.getInitialProps = async ({ pathname, req }: NextContext) => {
     { id: 103, name: "jillll" },
     { id: 104, name: pathname }
   ];
-  if ((req as any).query) console.log((req as any).query);
+  console.log(query);
   return { items: dataArray };
 };
 
