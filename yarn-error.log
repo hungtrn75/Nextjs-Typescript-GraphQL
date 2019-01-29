@@ -44,14 +44,12 @@ npm manifest:
       "less": "^3.9.0",
       "next": "^7.0.2",
       "next-nprogress": "^1.4.0",
-      "nprogress": "^0.2.0",
       "react": "^16.7.0",
       "react-dom": "^16.7.0"
     },
     "devDependencies": {
       "@babel/plugin-proposal-decorators": "^7.3.0",
       "@types/next": "^7.0.6",
-      "@types/nprogress": "^0.0.29",
       "@types/react": "^16.4.16",
       "@types/react-dom": "16.0.11",
       "typescript": "3.2.4"
@@ -878,11 +876,6 @@ Lockfile:
     version "10.12.18"
     resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.18.tgz#1d3ca764718915584fcd9f6344621b7672665c67"
     integrity sha512-fh+pAqt4xRzPfqA6eh3Z2y6fyZavRIumvjhaCL753+TVkGKGhpPeyrJG2JftD0T9q4GF00KjefsQ+PQNDdWQaQ==
-  
-  "@types/nprogress@^0.0.29":
-    version "0.0.29"
-    resolved "https://registry.yarnpkg.com/@types/nprogress/-/nprogress-0.0.29.tgz#060bd510022a005f1840234030d3132fb9195471"
-    integrity sha1-BgvVEAIqAF8YQCNAMNMTL7kZVHE=
   
   "@types/prop-types@*":
     version "15.5.8"
