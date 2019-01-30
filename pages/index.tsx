@@ -1,8 +1,7 @@
 import { Button, Tag } from "antd";
-import { gql } from "apollo-boost";
 import Link from "next/link";
 import * as React from "react";
-import { Mutation } from "react-apollo";
+import { LoginComponent } from "../generated/apolloComponents";
 
 const IndexPage: React.FunctionComponent = () => {
   return (
@@ -22,30 +21,23 @@ const IndexPage: React.FunctionComponent = () => {
         <a>List Fc</a>
       </Link>
       <div>
-        <Mutation
-          mutation={gql`
-            mutation {
-              login(email: "hungtrn75@gmail.com", password: "123456789") {
-                id
-                name
-                email
-                firstName
-                lastName
-              }
-            }
-          `}
-        >
+        <LoginComponent>
           {mutate => (
             <Button
               onClick={async () => {
-                const res = await mutate();
+                const res = await mutate({
+                  variables: {
+                    email: "hungtrn75@gmail.com",
+                    password: "123456789"
+                  }
+                });
                 console.log(res);
               }}
             >
               Call login mutation
             </Button>
           )}
-        </Mutation>
+        </LoginComponent>
       </div>
       <div>
         <Tag color="magenta">magenta</Tag>
