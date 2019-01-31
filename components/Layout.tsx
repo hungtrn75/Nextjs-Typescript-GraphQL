@@ -42,6 +42,10 @@ const Layout: React.FunctionComponent<Props> = ({
           <a>Register</a>
         </Link>{" "}
         |{" "}
+        <Link href="/profile">
+          <a>Profile</a>
+        </Link>{" "}
+        |{" "}
       </nav>
     </header>
     {children}

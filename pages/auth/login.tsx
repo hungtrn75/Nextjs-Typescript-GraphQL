@@ -2,6 +2,8 @@ import React from "react";
 import WrappedLoginForm from "../../components/auth/Login";
 import Layout from "../../components/Layout";
 import { LoginComponent } from "../../generated/apolloComponents";
+import { withAuth } from "../../lib/withAuth";
+import { Router } from "../../server/routes";
 
 type tvalues = { email: string; password: string; remember: boolean };
 
@@ -20,6 +22,7 @@ class LoginPage extends React.Component {
                   }
                 });
                 console.log(res);
+                Router.push("/");
               }}
             />
           )}
@@ -29,4 +32,4 @@ class LoginPage extends React.Component {
   }
 }
 
-export default LoginPage;
+export default withAuth(LoginPage);

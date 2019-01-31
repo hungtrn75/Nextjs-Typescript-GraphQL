@@ -58,6 +58,26 @@ export type LoginLogin = {
   name: string;
 };
 
+export type MeVariables = {};
+
+export type MeQuery = {
+  __typename?: "Query";
+
+  me: Maybe<MeMe>;
+};
+
+export type MeMe = {
+  __typename?: "User";
+
+  email: string;
+
+  firstName: string;
+
+  lastName: string;
+
+  name: string;
+};
+
 export type RegisterVariables = {
   data: RegisterInput;
 };
@@ -138,6 +158,49 @@ export function LoginHOC<TProps, TChildProps = any>(
     LoginVariables,
     LoginProps<TChildProps>
   >(LoginDocument, operationOptions);
+}
+export const MeDocument = gql`
+  query Me {
+    me {
+      email
+      firstName
+      lastName
+      name
+    }
+  }
+`;
+export class MeComponent extends React.Component<
+  Partial<ReactApollo.QueryProps<MeQuery, MeVariables>>
+> {
+  render() {
+    return (
+      <ReactApollo.Query<MeQuery, MeVariables>
+        query={MeDocument}
+        {...(this as any)["props"] as any}
+      />
+    );
+  }
+}
+export type MeProps<TChildProps = any> = Partial<
+  ReactApollo.DataProps<MeQuery, MeVariables>
+> &
+  TChildProps;
+export function MeHOC<TProps, TChildProps = any>(
+  operationOptions:
+    | ReactApollo.OperationOption<
+        TProps,
+        MeQuery,
+        MeVariables,
+        MeProps<TChildProps>
+      >
+    | undefined
+) {
+  return ReactApollo.graphql<
+    TProps,
+    MeQuery,
+    MeVariables,
+    MeProps<TChildProps>
+  >(MeDocument, operationOptions);
 }
 export const RegisterDocument = gql`
   mutation Register($data: RegisterInput!) {
