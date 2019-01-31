@@ -15,13 +15,13 @@ class LoginPage extends React.Component {
           {login => (
             <WrappedLoginForm
               submit={async (values: tvalues) => {
-                const res = await login({
+                const res: any = await login({
                   variables: {
                     email: values.email,
                     password: values.password
                   }
                 });
-                console.log(res);
+                if (res.data.login === null) console.log("error")
                 Router.push("/");
               }}
             />

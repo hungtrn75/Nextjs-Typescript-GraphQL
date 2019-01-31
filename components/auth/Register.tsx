@@ -1,25 +1,66 @@
 import { Button, Form, Input } from "antd";
 import * as React from "react";
+import { Router } from "../../server/routes";
 import "./registration.less";
 
-type Props = {
+type IProps = {
   form?: any;
   onSubmit: (values: any) => Promise<void>;
+  mutate: any;
 };
 
-class RegistrationForm extends React.Component<Props> {
-  state = {
-    confirmDirty: false,
-    autoCompleteResult: []
-  };
+type IState = {
+  errors: any;
+  confirmDirty: boolean;
+  autoCompleteResult: any
+}
+
+class RegistrationForm extends React.Component<IProps, IState> {
+
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      confirmDirty: false,
+      autoCompleteResult: [],
+      errors: {}
+    };
+  }
 
   handleSubmit = (e: any) => {
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err: any, values: any) => {
+    this.props.form.validateFieldsAndScroll(async (err: any, values: any) => {
       if (!err) {
         console.log("Received values of form: ", values);
+        try {
+          const res = await this.props.mutate({
+            variables: {
+              data: {
+                firstName: values.firstName,
+                lastName: values.lastName,
+                email: values.email,
+                password: values.password
+              }
+            }
+          });
+          console.log(res);
+          Router.pushRoute("login");
+        } catch (err) {
+          err.graphQLErrors[0].validationErrors.forEach(
+            (validationErr: any) => {
+              Object.values(validationErr.constraints).forEach(
+                (message: any) => {
+                  this.props.form.setFields({
+                    [validationErr.property]: {
+                      value: values[validationErr.property],
+                      errors: [new Error(message)],
+                    },
+                  });
+                }
+              );
+            }
+          );
+        }
       }
-      this.props.onSubmit(values);
     });
   };
 
@@ -28,7 +69,7 @@ class RegistrationForm extends React.Component<Props> {
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   };
 
-  compareToFirstPassword = (rule: any, value: any, callback: any) => {
+  compareToFirstPassword = (_rule: any, value: any, callback: any) => {
     const form = this.props.form;
     if (value && value !== form.getFieldValue("password")) {
       callback("Two passwords that you enter is inconsistent!");
@@ -37,7 +78,7 @@ class RegistrationForm extends React.Component<Props> {
     }
   };
 
-  validateToNextPassword = (rule: any, value: any, callback: any) => {
+  validateToNextPassword = (_rule: any, value: any, callback: any) => {
     const form = this.props.form;
     if (value && this.state.confirmDirty) {
       form.validateFields(["confirm"], { force: true });
@@ -47,6 +88,7 @@ class RegistrationForm extends React.Component<Props> {
 
   render() {
     const { getFieldDecorator } = this.props.form;
+    // const { errors } = this.state;
 
     const formItemLayout = {
       labelCol: {
