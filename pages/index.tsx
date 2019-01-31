@@ -1,44 +1,11 @@
-import { Button, Tag } from "antd";
-import Link from "next/link";
+import { Tag } from "antd";
 import * as React from "react";
-import { LoginComponent } from "../generated/apolloComponents";
+import Layout from "../components/Layout";
 
 const IndexPage: React.FunctionComponent = () => {
   return (
-    <>
+    <Layout title="Homepage">
       <h1>Hello Next.js 👋</h1>
-      <p>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-      </p>
-      <p>
-        <Link href="/list-class">
-          <a>List Class</a>
-        </Link>
-      </p>
-      <Link href="/list-fc">
-        <a>List Fc</a>
-      </Link>
-      <div>
-        <LoginComponent>
-          {mutate => (
-            <Button
-              onClick={async () => {
-                const res = await mutate({
-                  variables: {
-                    email: "hungtrn75@gmail.com",
-                    password: "123456789"
-                  }
-                });
-                console.log(res);
-              }}
-            >
-              Call login mutation
-            </Button>
-          )}
-        </LoginComponent>
-      </div>
       <div>
         <Tag color="magenta">magenta</Tag>
         <Tag color="red">red</Tag>
@@ -52,7 +19,7 @@ const IndexPage: React.FunctionComponent = () => {
         <Tag color="geekblue">geekblue</Tag>
         <Tag color="purple">purple</Tag>
       </div>
-    </>
+    </Layout>
   );
 };
 
