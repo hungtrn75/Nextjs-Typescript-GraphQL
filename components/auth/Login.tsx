@@ -1,11 +1,12 @@
 import { Button, Checkbox, Form, Icon, Input } from "antd";
 import * as React from "react";
-import { Link } from "../../server/routes";
+import { Link, Router } from "../../server/routes";
 import "./login.less";
 
 type Props = {
   form?: any;
   submit: (values: any) => Promise<void>;
+  mutate: any
 };
 
 class LoginForm extends React.PureComponent<Props> {
@@ -15,7 +16,24 @@ class LoginForm extends React.PureComponent<Props> {
       if (!err) {
         console.log("Received values of form: ", values);
       }
-      this.props.submit(values);
+      const res: any = await this.props.mutate({
+        variables: {
+          data: {
+            email: values.email,
+            password: values.password
+          }
+        }
+      });
+      if (!res.data.login) this.props.form.setFields({
+        email: {
+          value: values.email,
+          errors: [new Error("Incorrect email or password")]
+        },
+        password: {
+          value: values.email,
+          errors: [new Error("Incorrect email or password")]
+        }
+      }); else Router.push("/");
     });
   };
   render() {

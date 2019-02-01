@@ -6,6 +6,12 @@ export interface ChangePasswordInput {
   token: string;
 }
 
+export interface LoginInput {
+  password: string;
+
+  email: string;
+}
+
 export interface RegisterInput {
   password: string;
 
@@ -34,8 +40,7 @@ export type Upload = any;
 // ====================================================
 
 export type LoginVariables = {
-  email: string;
-  password: string;
+  data: LoginInput;
 };
 
 export type LoginMutation = {
@@ -112,8 +117,8 @@ import gql from "graphql-tag";
 // ====================================================
 
 export const LoginDocument = gql`
-  mutation Login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+  mutation Login($data: LoginInput!) {
+    login(data: $data) {
       id
       firstName
       lastName
