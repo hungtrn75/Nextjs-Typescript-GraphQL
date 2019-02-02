@@ -12,7 +12,7 @@ routes.add("about", "/about", "/about");
 routes.add("login", "/auth/login", "auth/login");
 routes.add("register", "/auth/register", "auth/register");
 routes.add("forgot", "/auth/forgot", "auth/forgot");
-routes.add("confirm-email", "/auth/confirm-email", "auth/confirm-email");
+routes.add("verify-email", "/auth/verify-email/:token", "auth/verify-email");
 
 // routes.add('products', '/products', 'products')
 // routes.add('edit_product', '/products/:id/edit', 'products/edit')

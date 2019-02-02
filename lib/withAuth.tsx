@@ -1,7 +1,7 @@
 import React, { ComponentType } from "react";
-import { Router } from "../server/routes";
+import { MyContext } from "../interfaces/MyContext";
 import checkLoggedIn from "./checkLoggedIn";
-import { isBrowser } from "./isBrowser";
+import redirect from "./redirect";
 
 export const withAuth = (
   WrappedComponent: ComponentType<any>,
@@ -9,15 +9,11 @@ export const withAuth = (
 ) =>
   class extends React.Component<any, any> {
     static displayName = `WithAuth(${WrappedComponent.displayName})`;
-    static async getInitialProps(context: any) {
-      const { profile } = await checkLoggedIn(context.apolloClient);
+    static async getInitialProps({ apolloClient, ...ctx }: MyContext) {
+      const { profile } = await checkLoggedIn(apolloClient);
       if (auth) {
-        if (!profile)
-          if (isBrowser) Router.push("/auth/login");
-          else context.res.redirect("/auth/login");
-      } else if (profile)
-        if (isBrowser) Router.push("/");
-        else context.res.redirect("/");
+        if (!profile) redirect(ctx, "auth/login");
+      } else if (profile) redirect(ctx, "/");
       return { profile };
     }
 
