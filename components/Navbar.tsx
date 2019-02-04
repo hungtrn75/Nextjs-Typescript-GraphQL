@@ -1,6 +1,7 @@
+import { Button } from "antd";
 import Link from "next/link";
 import * as React from "react";
-import { MeComponent } from "../generated/apolloComponents";
+import { LogoutComponent, MeComponent } from "../generated/apolloComponents";
 
 type Props = {
   title?: string;
@@ -8,7 +9,7 @@ type Props = {
 
 const Navbar: React.FunctionComponent<Props> = () => (
   <MeComponent>
-    {({ data }) => (
+    {({ client, data }) => (
       <header>
         <nav>
           <Link href="/">
@@ -25,10 +26,15 @@ const Navbar: React.FunctionComponent<Props> = () => (
                 <a>Profile</a>
               </Link>{" "}
               |{" "}
-              <Link href="/auth/logout">
-                <a>Logout</a>
-              </Link>{" "}
-              |{" "}
+              <LogoutComponent>
+                {logout => (
+                  <Button
+                    onClick={() => logout().then(() => client.resetStore())}
+                  >
+                    Logout
+                  </Button>
+                )}
+              </LogoutComponent>
             </>
           ) : (
             <>

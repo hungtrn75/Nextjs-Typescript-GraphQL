@@ -54,13 +54,13 @@ export type LoginVariables = {
 };
 
 export type LoginMutation = {
-  __typename?: "LoginMutation";
+  __typename?: "Mutation";
 
   login: Maybe<LoginLogin>;
 };
 
 export type LoginLogin = {
-  __typename?: "Login";
+  __typename?: "User";
 
   id: string;
 
@@ -73,16 +73,24 @@ export type LoginLogin = {
   name: string;
 };
 
+export type LogoutVariables = {};
+
+export type LogoutMutation = {
+  __typename?: "Mutation";
+
+  logout: boolean;
+};
+
 export type MeVariables = {};
 
 export type MeQuery = {
-  __typename?: "Me";
+  __typename?: "Query";
 
   me: Maybe<MeMe>;
 };
 
 export type MeMe = {
-  __typename?: "Me";
+  __typename?: "User";
 
   email: string;
 
@@ -98,7 +106,7 @@ export type RegisterVariables = {
 };
 
 export type RegisterMutation = {
-  __typename?: "RegisterMutation";
+  __typename?: "Mutation";
 
   register: RegisterRegister;
 };
@@ -120,7 +128,7 @@ export type RegisterRegister = {
 export type HelloVariables = {};
 
 export type HelloQuery = {
-  __typename?: "Hello";
+  __typename?: "Query";
 
   hello: string;
 };
@@ -223,6 +231,48 @@ export function LoginHOC<TProps, TChildProps = any>(
     LoginVariables,
     LoginProps<TChildProps>
   >(LoginDocument, operationOptions);
+}
+export const LogoutDocument = gql`
+  mutation Logout {
+    logout
+  }
+`;
+export class LogoutComponent extends React.Component<
+  Partial<ReactApollo.MutationProps<LogoutMutation, LogoutVariables>>
+> {
+  render() {
+    return (
+      <ReactApollo.Mutation<LogoutMutation, LogoutVariables>
+        mutation={LogoutDocument}
+        {...(this as any)["props"] as any}
+      />
+    );
+  }
+}
+export type LogoutProps<TChildProps = any> = Partial<
+  ReactApollo.MutateProps<LogoutMutation, LogoutVariables>
+> &
+  TChildProps;
+export type LogoutMutationFn = ReactApollo.MutationFn<
+  LogoutMutation,
+  LogoutVariables
+>;
+export function LogoutHOC<TProps, TChildProps = any>(
+  operationOptions:
+    | ReactApollo.OperationOption<
+        TProps,
+        LogoutMutation,
+        LogoutVariables,
+        LogoutProps<TChildProps>
+      >
+    | undefined
+) {
+  return ReactApollo.graphql<
+    TProps,
+    LogoutMutation,
+    LogoutVariables,
+    LogoutProps<TChildProps>
+  >(LogoutDocument, operationOptions);
 }
 export const MeDocument = gql`
   query Me {

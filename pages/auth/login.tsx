@@ -9,10 +9,7 @@ class LoginPage extends React.Component {
     return (
       <Layout title="Login Page">
         <LoginComponent>
-          {login => {
-            console.log(login);
-            return <WrappedLoginForm mutate={login} />;
-          }}
+          {login => <WrappedLoginForm mutate={login} />}
         </LoginComponent>
       </Layout>
     );
