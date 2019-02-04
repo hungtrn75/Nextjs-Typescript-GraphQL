@@ -19,6 +19,6 @@ export default (apolloClient: any) => {
     })
     .catch((_e: any) => {
       // Fail gracefully
-      return { profile: {} };
+      return { profile: null };
     });
 };

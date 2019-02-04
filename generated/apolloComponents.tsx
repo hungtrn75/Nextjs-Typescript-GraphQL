@@ -54,13 +54,13 @@ export type LoginVariables = {
 };
 
 export type LoginMutation = {
-  __typename?: "Mutation";
+  __typename?: "LoginMutation";
 
   login: Maybe<LoginLogin>;
 };
 
 export type LoginLogin = {
-  __typename?: "User";
+  __typename?: "Login";
 
   id: string;
 
@@ -76,13 +76,13 @@ export type LoginLogin = {
 export type MeVariables = {};
 
 export type MeQuery = {
-  __typename?: "Query";
+  __typename?: "Me";
 
   me: Maybe<MeMe>;
 };
 
 export type MeMe = {
-  __typename?: "User";
+  __typename?: "Me";
 
   email: string;
 
@@ -98,7 +98,7 @@ export type RegisterVariables = {
 };
 
 export type RegisterMutation = {
-  __typename?: "Mutation";
+  __typename?: "RegisterMutation";
 
   register: RegisterRegister;
 };
@@ -117,10 +117,17 @@ export type RegisterRegister = {
   name: string;
 };
 
-import * as ReactApollo from "react-apollo";
-import * as React from "react";
+export type HelloVariables = {};
+
+export type HelloQuery = {
+  __typename?: "Hello";
+
+  hello: string;
+};
 
 import gql from "graphql-tag";
+import * as React from "react";
+import * as ReactApollo from "react-apollo";
 
 // ====================================================
 // Components
@@ -186,6 +193,7 @@ export class LoginComponent extends React.Component<
     return (
       <ReactApollo.Mutation<LoginMutation, LoginVariables>
         mutation={LoginDocument}
+        refetchQueries={[{ query: MeDocument }]}
         {...(this as any)["props"] as any}
       />
     );
@@ -306,4 +314,42 @@ export function RegisterHOC<TProps, TChildProps = any>(
     RegisterVariables,
     RegisterProps<TChildProps>
   >(RegisterDocument, operationOptions);
+}
+export const HelloDocument = gql`
+  query Hello {
+    hello
+  }
+`;
+export class HelloComponent extends React.Component<
+  Partial<ReactApollo.QueryProps<HelloQuery, HelloVariables>>
+> {
+  render() {
+    return (
+      <ReactApollo.Query<HelloQuery, HelloVariables>
+        query={HelloDocument}
+        {...(this as any)["props"] as any}
+      />
+    );
+  }
+}
+export type HelloProps<TChildProps = any> = Partial<
+  ReactApollo.DataProps<HelloQuery, HelloVariables>
+> &
+  TChildProps;
+export function HelloHOC<TProps, TChildProps = any>(
+  operationOptions:
+    | ReactApollo.OperationOption<
+        TProps,
+        HelloQuery,
+        HelloVariables,
+        HelloProps<TChildProps>
+      >
+    | undefined
+) {
+  return ReactApollo.graphql<
+    TProps,
+    HelloQuery,
+    HelloVariables,
+    HelloProps<TChildProps>
+  >(HelloDocument, operationOptions);
 }

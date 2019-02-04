@@ -6,7 +6,7 @@ import "./login.less";
 type Props = {
   form?: any;
   submit: (values: any) => Promise<void>;
-  mutate: any
+  mutate: any;
 };
 
 class LoginForm extends React.PureComponent<Props> {
@@ -24,16 +24,20 @@ class LoginForm extends React.PureComponent<Props> {
           }
         }
       });
-      if (!res.data.login) this.props.form.setFields({
-        email: {
-          value: values.email,
-          errors: [new Error("Incorrect email or password")]
-        },
-        password: {
-          value: values.email,
-          errors: [new Error("Incorrect email or password")]
-        }
-      }); else Router.push("/");
+      if (!res.data.login)
+        this.props.form.setFields({
+          email: {
+            value: values.email,
+            errors: [new Error("Incorrect email or password")]
+          },
+          password: {
+            value: values.email,
+            errors: [new Error("Incorrect email or password")]
+          }
+        });
+      else {
+        Router.push("/");
+      }
     });
   };
   render() {

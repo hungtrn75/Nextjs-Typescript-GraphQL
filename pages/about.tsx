@@ -15,7 +15,6 @@ const AboutPage: NextFunctionComponent = () => {
 };
 
 AboutPage.getInitialProps = async ({ query }: NextContext) => {
-  console.log(query);
   return { query };
 };
 

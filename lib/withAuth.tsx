@@ -11,8 +11,9 @@ export const withAuth = (
     static displayName = `WithAuth(${WrappedComponent.displayName})`;
     static async getInitialProps({ apolloClient, ...ctx }: MyContext) {
       const { profile } = await checkLoggedIn(apolloClient);
+	  console.log(profile);
       if (auth) {
-        if (!profile) redirect(ctx, "auth/login");
+        if (!profile) redirect(ctx, "/auth/login");
       } else if (profile) redirect(ctx, "/");
       return { profile };
     }

@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Link from "next/link";
 import * as React from "react";
+import Navbar from "./Navbar";
 
 type Props = {
   title?: string;
@@ -16,38 +16,7 @@ const Layout: React.FunctionComponent<Props> = ({
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <header>
-      <nav>
-        <Link href="/">
-          <a>Home</a>
-        </Link>{" "}
-        |{" "}
-        <Link href="/list-fc">
-          <a>List as Functional Component</a>
-        </Link>{" "}
-        |{" "}
-        <Link href="/list-class">
-          <a>List As Class</a>
-        </Link>{" "}
-        |{" "}
-        <Link href="/about">
-          <a>About</a>
-        </Link>{" "}
-        |{" "}
-        <Link href="/auth/login">
-          <a>Login</a>
-        </Link>{" "}
-        |{" "}
-        <Link href="/auth/register">
-          <a>Register</a>
-        </Link>{" "}
-        |{" "}
-        <Link href="/profile">
-          <a>Profile</a>
-        </Link>{" "}
-        |{" "}
-      </nav>
-    </header>
+    <Navbar />
     {children}
     <footer>
       <hr />

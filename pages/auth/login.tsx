@@ -4,17 +4,15 @@ import Layout from "../../components/Layout";
 import { LoginComponent } from "../../generated/apolloComponents";
 import { withAuth } from "../../lib/withAuth";
 
-
 class LoginPage extends React.Component {
   render() {
     return (
       <Layout title="Login Page">
         <LoginComponent>
-          {login => (
-            <WrappedLoginForm
-              mutate={login}
-            />
-          )}
+          {login => {
+            console.log(login);
+            return <WrappedLoginForm mutate={login} />;
+          }}
         </LoginComponent>
       </Layout>
     );

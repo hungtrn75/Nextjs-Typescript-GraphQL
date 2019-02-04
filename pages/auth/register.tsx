@@ -11,11 +11,10 @@ class RegistrationPage extends React.Component {
     return (
       <Layout title="Registration Page">
         <RegisterComponent>
-          {register => (
-            <WrappedRegistrationForm
-              mutate={register}
-            />
-          )}
+          {register => {
+            console.log(register);
+            return <WrappedRegistrationForm mutate={register} />;
+          }}
         </RegisterComponent>
       </Layout>
     );
