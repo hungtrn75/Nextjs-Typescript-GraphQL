@@ -1,12 +1,12 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
-    "lib": ["dom", "es2015", "es2016", "es2017"],
-    "moduleResolution": "node",
-    "allowJs": true,
     "noEmit": true,
+    "allowJs": true,
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "noUnusedLocals": true,
@@ -16,9 +16,8 @@
     "sourceMap": true,
     "strict": true,
     "strictNullChecks": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
     "baseUrl": ".",
-    "typeRoots": ["./node_modules/@types"]
+    "typeRoots": ["./node_modules/@types"],
+    "lib": ["dom", "es2015", "es2016"]
   }
 }

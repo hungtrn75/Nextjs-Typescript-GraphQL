@@ -12,13 +12,12 @@ type IProps = {
 type IState = {
   errors: any;
   confirmDirty: boolean;
-  autoCompleteResult: any
-}
+  autoCompleteResult: any;
+};
 
 class RegistrationForm extends React.Component<IProps, IState> {
-
   constructor(props: any) {
-    super(props)
+    super(props);
     this.state = {
       confirmDirty: false,
       autoCompleteResult: [],
@@ -32,7 +31,7 @@ class RegistrationForm extends React.Component<IProps, IState> {
       if (!err) {
         console.log("Received values of form: ", values);
         try {
-          const res = await this.props.mutate({
+          await this.props.mutate({
             variables: {
               data: {
                 firstName: values.firstName,
@@ -42,18 +41,18 @@ class RegistrationForm extends React.Component<IProps, IState> {
               }
             }
           });
-          console.log(res);
           Router.pushRoute("login");
         } catch (err) {
           err.graphQLErrors[0].validationErrors.forEach(
             (validationErr: any) => {
+              //@ts-ignore
               Object.values(validationErr.constraints).forEach(
                 (message: any) => {
                   this.props.form.setFields({
                     [validationErr.property]: {
                       value: values[validationErr.property],
-                      errors: [new Error(message)],
-                    },
+                      errors: [new Error(message)]
+                    }
                   });
                 }
               );

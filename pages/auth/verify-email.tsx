@@ -9,11 +9,7 @@ import { MyContext } from "../../interfaces/MyContext";
 import { Router } from "../../server/routes";
 
 export default class Confirm extends React.PureComponent<any> {
-  static async getInitialProps({
-    query: { token },
-    apolloClient,
-    ...ctx
-  }: MyContext) {
+  static async getInitialProps({ query: { token }, apolloClient }: MyContext) {
     if (!token)
       return {
         message: `Invalid email verification code: ${token}.`,
@@ -35,9 +31,6 @@ export default class Confirm extends React.PureComponent<any> {
         type: "error"
       };
     else return { message: "Verify email sucessfully!", type: "success" };
-
-    // redirect(ctx, "/auth/login");
-    return {};
   }
   render() {
     const { message, type } = this.props;
