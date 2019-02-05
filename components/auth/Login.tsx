@@ -1,12 +1,18 @@
 import { Button, Checkbox, Form, Icon, Input } from "antd";
 import * as React from "react";
+import {
+  LoginMutationFn,
+  MeMe,
+  MeQuery
+} from "../../generated/apolloComponents";
+import { meQuery } from "../../graphql/user/mutations/me";
 import { Link, Router } from "../../server/routes";
 import "./login.less";
 
 type Props = {
   form?: any;
   submit: (values: any) => Promise<void>;
-  mutate: any;
+  mutate: LoginMutationFn;
 };
 
 class LoginForm extends React.PureComponent<Props> {
@@ -22,6 +28,19 @@ class LoginForm extends React.PureComponent<Props> {
             email: values.email,
             password: values.password
           }
+        },
+        update: (cache, { data }) => {
+          if (!data || !data.login) {
+            return;
+          }
+
+          cache.writeQuery<MeQuery, MeMe>({
+            query: meQuery,
+            data: {
+              __typename: "Query",
+              me: data.login
+            }
+          });
         }
       });
       if (!res.data.login)

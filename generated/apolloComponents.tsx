@@ -329,7 +329,7 @@ export class LoginComponent extends React.Component<
     return (
       <ReactApollo.Mutation<LoginMutation, LoginVariables>
         mutation={LoginDocument}
-        refetchQueries={[{ query: MeDocument }]}
+        // refetchQueries={[{ query: MeDocument }]}
         {...(this as any)["props"] as any}
       />
     );
