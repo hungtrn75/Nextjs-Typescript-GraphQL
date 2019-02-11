@@ -1,7 +1,6 @@
 import { Button, Form, Icon, Input } from "antd";
 import * as React from "react";
 import { Link } from "../../server/routes";
-import "./common.less";
 
 type Props = {
   form?: any;

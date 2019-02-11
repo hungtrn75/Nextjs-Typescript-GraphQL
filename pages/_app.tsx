@@ -3,12 +3,19 @@ import NProgress from "next-nprogress/component";
 import App, { Container } from "next/app";
 import Head from "next/head";
 import { ApolloProvider } from "react-apollo";
-import "../asserts/styles.less";
+import "../assets/styles.less";
+import Layout from "../components/admin/Layout";
+import checkLoggedIn from "../lib/checkLoggedIn";
 import withApollo from "../lib/withApollo";
 
+//@ts-ignore
 class MyApp extends App<any> {
+  static async getInitialProps({ ctx }: any) {
+    const { loginUser } = await checkLoggedIn(ctx.apolloClient);
+    return { loginUser };
+  }
   render() {
-    const { Component, pageProps, apolloClient } = this.props;
+    const { Component, pageProps, apolloClient, loginUser } = this.props;
     return (
       <Container>
         <NProgress
@@ -21,7 +28,9 @@ class MyApp extends App<any> {
           <title>Nextjs-Typescript-GraphQL</title>
         </Head>
         <ApolloProvider client={apolloClient}>
-          <Component {...pageProps} />
+          <Layout loginUser={loginUser}>
+            <Component {...pageProps} />
+          </Layout>
         </ApolloProvider>
       </Container>
     );

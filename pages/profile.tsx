@@ -1,7 +1,7 @@
 import React from "react";
-import Layout from "../components/Layout";
+// import Layout from "../components/admin/Layout";
 import checkLoggedIn from "../lib/checkLoggedIn";
-import { withAuth } from "../lib/withAuth";
+// import { withAuth } from "../lib/withAuth";
 
 class Profile extends React.Component<any> {
   static async getInitialProps({ apolloClient }: any) {
@@ -12,7 +12,7 @@ class Profile extends React.Component<any> {
   render() {
     const { profile } = this.props;
     return (
-      <Layout title="Profile page">
+      <>
         {profile ? (
           <div>
             <p>{profile.email}</p>
@@ -23,9 +23,9 @@ class Profile extends React.Component<any> {
         ) : (
           <div>Not profile to display</div>
         )}
-      </Layout>
+      </>
     );
   }
 }
 
-export default withAuth(Profile, true);
+export default Profile;

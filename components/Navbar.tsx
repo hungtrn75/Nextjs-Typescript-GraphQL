@@ -8,7 +8,7 @@ type Props = {
 
 const Navbar: React.FunctionComponent<Props> = () => (
   <MeComponent>
-    {({ client, data }) => (
+    {({ data }) => (
       <header>
         <nav>
           <Link href="/">

@@ -1,0 +1,87 @@
+@primary-color: #1da57a;
+@hover-color: #b2b0c7;
+
+.iconButton {
+  width: 24px;
+  height: 24px;
+
+  cursor: pointer;
+
+  &:hover {
+    .iconFont {
+      color: @primary-color;
+    }
+  }
+
+  .iconFont {
+    display: inline-block;
+    vertical-align: middle;
+    color: #b2b0c7;
+    font-size: 24px;
+  }
+}
+.notification {
+  padding: 24px 0;
+  width: 320px;
+  .notificationItem {
+    transition: all 0.3s;
+    padding: 12px 24px;
+    cursor: pointer;
+    &:hover {
+      background-color: @hover-color;
+    }
+  }
+  .clearButton {
+    text-align: center;
+    height: 48px;
+    line-height: 48px;
+    cursor: pointer;
+  }
+}
+
+.notificationPopover {
+  :global {
+    .ant-popover-inner-content {
+      padding: 0;
+    }
+    .ant-popover-arrow {
+      display: none;
+    }
+    .ant-list-item-content {
+      flex: 0;
+      margin-left: 16px;
+    }
+  }
+}
+
+.sider {
+  box-shadow: fade(@primary-color, 10%) 0 0 28px 0;
+  z-index: 10;
+  :global {
+    .ant-layout-sider-children {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media (max-width: 767.99px) {
+  .header {
+    width: 100% !important;
+  }
+
+  .ant-drawer-body {
+    padding: 0;
+  }
+}
+
+.rightHeader {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  & > * {
+    margin-right: 20px;
+  }
+}

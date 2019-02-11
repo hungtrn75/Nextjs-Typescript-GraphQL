@@ -1,10 +1,10 @@
 import { Tag } from "antd";
 import * as React from "react";
-import Layout from "../components/Layout";
+import { withAuth } from "../lib/withAuth";
 
-const IndexPage: React.FunctionComponent = () => {
+const IndexPage: React.FunctionComponent = ({ loginUser }: any) => {
   return (
-    <Layout title="Homepage">
+    <>
       <h1>Hello Next.js 👋</h1>
       <div>
         <Tag color="magenta">magenta</Tag>
@@ -19,8 +19,8 @@ const IndexPage: React.FunctionComponent = () => {
         <Tag color="geekblue">geekblue</Tag>
         <Tag color="purple">purple</Tag>
       </div>
-    </Layout>
+    </>
   );
 };
 
-export default IndexPage;
+export default withAuth(IndexPage, true);

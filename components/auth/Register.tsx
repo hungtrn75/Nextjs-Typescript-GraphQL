@@ -1,7 +1,6 @@
 import { Button, Form, Input } from "antd";
 import * as React from "react";
 import { Router } from "../../server/routes";
-import "./registration.less";
 
 type IProps = {
   form?: any;

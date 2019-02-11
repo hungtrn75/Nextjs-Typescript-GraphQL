@@ -7,7 +7,6 @@ import {
 } from "../../generated/apolloComponents";
 import { meQuery } from "../../graphql/user/mutations/me";
 import { Link, Router } from "../../server/routes";
-import "./login.less";
 
 type Props = {
   form?: any;

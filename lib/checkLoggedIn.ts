@@ -15,10 +15,10 @@ export default (apolloClient: any) => {
       `
     })
     .then(({ data }: any) => {
-      return { profile: data.me };
+      return { loginUser: data.me };
     })
     .catch((_e: any) => {
       // Fail gracefully
-      return { profile: null };
+      return { loginUser: null };
     });
 };
