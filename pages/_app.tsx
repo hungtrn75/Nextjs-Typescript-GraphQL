@@ -3,6 +3,7 @@ import NProgress from "next-nprogress/component";
 import App, { Container } from "next/app";
 import Head from "next/head";
 import { ApolloProvider } from "react-apollo";
+import { ApolloProvider as ApolloHooksProvider } from "react-apollo-hooks";
 import "../assets/styles.less";
 import Layout from "../components/admin";
 import checkLoggedIn from "../lib/checkLoggedIn";
@@ -28,9 +29,11 @@ class MyApp extends App<any> {
           <title>Nextjs-Typescript-GraphQL</title>
         </Head>
         <ApolloProvider client={apolloClient}>
-          <Layout loginUser={loginUser}>
-            <Component {...pageProps} />
-          </Layout>
+          <ApolloHooksProvider client={apolloClient}>
+            <Layout loginUser={loginUser}>
+              <Component {...pageProps} />
+            </Layout>
+          </ApolloHooksProvider>
         </ApolloProvider>
       </Container>
     );
