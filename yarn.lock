@@ -1581,6 +1581,13 @@ async-each@^1.0.0:
   resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
   integrity sha1-GdOGodntxufByF04iu28xW0zYC0=
 
+async-validator@^1.10.1:
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/async-validator/-/async-validator-1.10.1.tgz#41e9b0b9f8e719e6edf946372f018a958c2e70f3"
+  integrity sha512-VLiLKZuJc8VIeAMC3YobVsZov8XPNhbwyIkKjhPW5cFnhZXH+HHJpkE270YMD/6zJIOJXUN/Cq0t3fR7XPwaDQ==
+  dependencies:
+    babel-runtime "6.x"
+
 async-validator@~1.8.5:
   version "1.8.5"
   resolved "https://registry.yarnpkg.com/async-validator/-/async-validator-1.8.5.tgz#dc3e08ec1fd0dddb67e60842f02c0cd1cec6d7f0"
@@ -6076,6 +6083,13 @@ rc-editor-mention@^1.1.7:
     prop-types "^15.5.8"
     rc-animate "^2.3.0"
     rc-editor-core "~0.8.3"
+
+rc-form-hooks@^0.0.0-alpha.2:
+  version "0.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/rc-form-hooks/-/rc-form-hooks-0.0.0-alpha.2.tgz#8ba295838f3b71a9f2fededc25e55d8b34a72da7"
+  integrity sha512-xtKXUUgGs5iRs03IOLcm4OH5OyJmYK5apWI9wSejsb+NU7yh8bg7UJgBjA2IyC7dpcQ8i+A58fM3sTqq7NZIgQ==
+  dependencies:
+    async-validator "^1.10.1"
 
 rc-form@^2.4.0:
   version "2.4.1"
