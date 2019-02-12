@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @types/enquire-js
+  C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add -D @types/ react-device-detect
 
 PATH: 
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Admin\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\nodejs;C:\Program Files\Git\cmd;D:\Program Files\MongoDB\Server\4.0\bin;C:\Program Files\PostgreSQL\10\bin;D:\xampp\apache\bin;C:\ProgramData\chocolatey\bin;C:\Users\Admin\Anaconda3;C:\Users\Admin\Anaconda3\Scripts;C:\Python27;C:\Python27\Scripts;E:\Program Files\Matlab\runtime\win64;E:\Program Files\Matlab\bin;C:\ffmpeg\bin;D:\xampp\php;C:\ProgramData\ComposerSetup\bin;D:\nginx;C:\OpenSSL-Win64\bin;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Java\jdk1.8.0_191\bin;%ANDROID_HOME%;C:\Users\Admin\AppData\Local\Android\Sdk\platform-tools;C:\Users\Admin\Anaconda3;C:\Users\Admin\Anaconda3\Library\mingw-w64\bin;C:\Users\Admin\Anaconda3\Library\usr\bin;C:\Users\Admin\Anaconda3\Library\bin;C:\Users\Admin\Anaconda3\Scripts;C:\Python27\Scripts;C:\Python27;C:\Users\Admin\AppData\Local\Microsoft\WindowsApps;C:\Users\Admin\AppData\Roaming\npm;C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Program Files\JetBrains\PhpStorm 2018.2.1\bin;C:\Users\Admin\AppData\Local\now-cli;C:\Program Files\heroku\bin;C:\Program Files\PostgreSQL\10\bin;C:\gsutil;D:\xampp\apache\bin;C:\ffmpeg\bin;C:\Users\Admin\AppData\Roaming\Composer\vendor\bin;D:\nginx;C:\OpenSSL-Win64\bin;D:\netcat
@@ -14,8 +14,8 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fenquire-js: Not found
-      at Request.params.callback [as _callback] (C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66255:18)
+  Error: https://registry.yarnpkg.com/@types%2f: Request "https://registry.yarnpkg.com/@types%2f" returned a 405
+      at Request.params.callback [as _callback] (C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66264:18)
       at Request.self.callback (C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:129397:22)
       at emitTwo (events.js:126:13)
       at Request.emit (events.js:214:7)
@@ -59,6 +59,7 @@ npm manifest:
       "next-routes": "^1.4.2",
       "react": "^16.8.1",
       "react-apollo": "^2.4.1",
+      "react-device-detect": "^1.6.2",
       "react-dom": "^16.8.1"
     },
     "devDependencies": {
@@ -6448,6 +6449,11 @@ Lockfile:
       lodash.flowright "^3.5.0"
       lodash.isequal "^4.5.0"
       prop-types "^15.6.0"
+  
+  react-device-detect@^1.6.2:
+    version "1.6.2"
+    resolved "https://registry.yarnpkg.com/react-device-detect/-/react-device-detect-1.6.2.tgz#2587e4d1dc15bdfce7a1bf5417624ecd2a2fc31f"
+    integrity sha512-XIBgwIfpGAknm7tXe/YNbx4ieIR7IyFI3KNfSQk4UjHVy97UHe/nB7iJj8R/dDsI+I/ZzPR4HJ39Gh5tI4nhxw==
   
   react-dom@^16.8.1:
     version "16.8.1"

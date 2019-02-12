@@ -4,7 +4,7 @@ import App, { Container } from "next/app";
 import Head from "next/head";
 import { ApolloProvider } from "react-apollo";
 import "../assets/styles.less";
-import Layout from "../components/admin/Layout";
+import Layout from "../components/admin";
 import checkLoggedIn from "../lib/checkLoggedIn";
 import withApollo from "../lib/withApollo";
 
