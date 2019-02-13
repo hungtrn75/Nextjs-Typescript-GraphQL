@@ -10,6 +10,7 @@ import { Router } from "../../server/routes";
 
 export default class Confirm extends React.PureComponent<any> {
   static async getInitialProps({ query: { token }, apolloClient }: MyContext) {
+    console.log("object");
     if (!token)
       return {
         message: `Invalid email verification code: ${token}.`,

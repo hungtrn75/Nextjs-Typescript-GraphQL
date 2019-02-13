@@ -11,9 +11,12 @@ import withApollo from "../lib/withApollo";
 
 //@ts-ignore
 class MyApp extends App<any> {
-  static async getInitialProps({ ctx }: any) {
+  static async getInitialProps({ Component, ctx }: any) {
+    const pageProps = Component.getInitialProps
+      ? await Component.getInitialProps(ctx)
+      : {};
     const { loginUser } = await checkLoggedIn(ctx.apolloClient);
-    return { loginUser };
+    return { pageProps, loginUser };
   }
   render() {
     const { Component, pageProps, apolloClient, loginUser } = this.props;
