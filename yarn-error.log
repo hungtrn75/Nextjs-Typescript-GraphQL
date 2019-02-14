@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add -D @types/react-apollo-hooks
+  C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add -D @types/draftjs-to-html
 
 PATH: 
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Admin\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\nodejs;C:\Program Files\Git\cmd;D:\Program Files\MongoDB\Server\4.0\bin;C:\Program Files\PostgreSQL\10\bin;D:\xampp\apache\bin;C:\ProgramData\chocolatey\bin;C:\Users\Admin\Anaconda3;C:\Users\Admin\Anaconda3\Scripts;C:\Python27;C:\Python27\Scripts;E:\Program Files\Matlab\runtime\win64;E:\Program Files\Matlab\bin;C:\ffmpeg\bin;D:\xampp\php;C:\ProgramData\ComposerSetup\bin;D:\nginx;C:\OpenSSL-Win64\bin;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Java\jdk1.8.0_191\bin;%ANDROID_HOME%;C:\Users\Admin\AppData\Local\Android\Sdk\platform-tools;C:\Users\Admin\Anaconda3;C:\Users\Admin\Anaconda3\Library\mingw-w64\bin;C:\Users\Admin\Anaconda3\Library\usr\bin;C:\Users\Admin\Anaconda3\Library\bin;C:\Users\Admin\Anaconda3\Scripts;C:\Python27\Scripts;C:\Python27;C:\Users\Admin\AppData\Local\Microsoft\WindowsApps;C:\Users\Admin\AppData\Roaming\npm;C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Program Files\JetBrains\PhpStorm 2018.2.1\bin;C:\Users\Admin\AppData\Local\now-cli;C:\Program Files\heroku\bin;C:\Program Files\PostgreSQL\10\bin;C:\gsutil;D:\xampp\apache\bin;C:\ffmpeg\bin;C:\Users\Admin\AppData\Roaming\Composer\vendor\bin;D:\nginx;C:\OpenSSL-Win64\bin;D:\netcat
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2freact-apollo-hooks: Not found
+  Error: https://registry.yarnpkg.com/@types%2fdraftjs-to-html: Not found
       at Request.params.callback [as _callback] (C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66255:18)
       at Request.self.callback (C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:129397:22)
       at emitTwo (events.js:126:13)
@@ -49,6 +49,7 @@ npm manifest:
       "babel-plugin-import": "^1.11.0",
       "cookie": "^0.3.1",
       "dotenv": "^6.2.0",
+      "draftjs-to-html": "^0.8.4",
       "enquire-js": "^0.2.1",
       "express": "^4.16.4",
       "graphql": "^14.1.1",
@@ -60,15 +61,18 @@ npm manifest:
       "react": "^16.8.1",
       "react-apollo": "^2.4.1",
       "react-apollo-hooks": "^0.3.1",
-      "react-dom": "^16.8.1"
+      "react-dom": "^16.8.1",
+      "react-draft-wysiwyg": "^1.13.1"
     },
     "devDependencies": {
       "@types/cookie": "^0.3.2",
+      "@types/draft-js": "^0.10.28",
       "@types/express": "^4.16.1",
       "@types/graphql": "^14.0.5",
       "@types/next": "^7.0.6",
       "@types/react": "^16.8.2",
       "@types/react-dom": "^16.8.0",
+      "@types/react-draft-wysiwyg": "^1.12.1",
       "cross-env": "^5.2.0",
       "graphql-code-generator": "^0.16.0",
       "graphql-codegen-typescript-client": "^0.16.0",
@@ -891,6 +895,14 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/cookie/-/cookie-0.3.2.tgz#453f4b14b25da6a8ea4494842dedcbf0151deef9"
     integrity sha512-aHQA072E10/8iUQsPH7mQU/KUyQBZAGzTVRCUvnSz8mSvbrYsP4xEO2RSA0Pjltolzi0j8+8ixrm//Hr4umPzw==
   
+  "@types/draft-js@*", "@types/draft-js@^0.10.28":
+    version "0.10.28"
+    resolved "https://registry.yarnpkg.com/@types/draft-js/-/draft-js-0.10.28.tgz#14d68b496072689466e81887ac1e1c585157cc31"
+    integrity sha512-mShgWAYAduZ2Rwzpo52cToq+q8SIZ2O6Byl2F9wphB0QFjuNtUMyvAzGGg4kYGWPLZKELMWlEA/wv+AdPlkclw==
+    dependencies:
+      "@types/react" "*"
+      immutable "^3.8.1"
+  
   "@types/express-serve-static-core@*":
     version "4.16.1"
     resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.16.1.tgz#35df7b302299a4ab138a643617bd44078e74d44e"
@@ -974,6 +986,14 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.8.0.tgz#c565f43f9d2ec911f9e0b8f3b74e25e67879aa3f"
     integrity sha512-Jp4ufcEEjVJEB0OHq2MCZcE1u3KYUKO6WnSuiU/tZeYeiZxUoQavfa/TZeiIT+1XoN6l0lQVNM30VINZFDeolQ==
     dependencies:
+      "@types/react" "*"
+  
+  "@types/react-draft-wysiwyg@^1.12.1":
+    version "1.12.1"
+    resolved "https://registry.yarnpkg.com/@types/react-draft-wysiwyg/-/react-draft-wysiwyg-1.12.1.tgz#c6c70003cbf9329a7e9570f07b5fa32b5189a1ba"
+    integrity sha512-tCgKfLFhqYbXrOukeFI6tuZCUj7cYiNB6fce0ebH3MKW5xh5p3a7eKZ94uEMvwM8FsORAerGCUqk1k6wVZOEiQ==
+    dependencies:
+      "@types/draft-js" "*"
       "@types/react" "*"
   
   "@types/react-loadable@*":
@@ -2893,6 +2913,16 @@ Lockfile:
       immutable "~3.7.4"
       object-assign "^4.1.0"
   
+  draftjs-to-html@^0.8.4:
+    version "0.8.4"
+    resolved "https://registry.yarnpkg.com/draftjs-to-html/-/draftjs-to-html-0.8.4.tgz#bda0adc00945db1f1baf0191b34b49b24191f1df"
+    integrity sha512-+4hekxc8dTJvKk6usiEsFX9O1uOD9vLZZOs9ZI3RhTe89yNmtazYII/ILDXfbMPfzNaYfX7Gf3zjRm6UUFxqyg==
+  
+  draftjs-utils@^0.9.3:
+    version "0.9.4"
+    resolved "https://registry.yarnpkg.com/draftjs-utils/-/draftjs-utils-0.9.4.tgz#976c61aa133dbbbfedd65ae1dd6627d7b98c6f08"
+    integrity sha512-KYjABSbGpJrwrwmxVj5UhfV37MF/p0QRxKIyL+/+QOaJ8J9z1FBKxkblThbpR0nJi9lxPQWGg+gh+v0dAsSCCg==
+  
   duplexer3@^0.1.4:
     version "0.1.4"
     resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
@@ -3879,6 +3909,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.2.1.tgz#0df29351f0721163515dfb9e5543e5f6eed5162f"
     integrity sha1-DfKTUfByEWNRXfueVUPl9u7VFi8=
   
+  html-to-draftjs@^1.4.0:
+    version "1.4.0"
+    resolved "https://registry.yarnpkg.com/html-to-draftjs/-/html-to-draftjs-1.4.0.tgz#8a3cbbba5b49d50be8ce85cc08b112d5bf00fc1d"
+    integrity sha1-ijy7ultJ1QvozoXMCLES1b8A/B0=
+  
   htmlescape@1.1.1:
     version "1.1.1"
     resolved "https://registry.yarnpkg.com/htmlescape/-/htmlescape-1.1.1.tgz#3a03edc2214bca3b66424a3e7959349509cb0351"
@@ -3986,7 +4021,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/immutable-tuple/-/immutable-tuple-0.4.10.tgz#e0b1625384f514084a7a84b749a3bb26e9179929"
     integrity sha512-45jheDbc3Kr5Cw8EtDD+4woGRUV0utIrJBZT8XH0TPZRfm8tzT0/sLGGzyyCCFqFMG5Pv5Igf3WY/arn6+8V9Q==
   
-  immutable@^3.7.4:
+  immutable@^3.7.4, immutable@^3.8.1:
     version "3.8.2"
     resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.2.tgz#c2439951455bb39913daf281376f1530e104adf3"
     integrity sha1-wkOZUUVbs5kT2vKBN28VMOEErfM=
@@ -4599,6 +4634,13 @@ Lockfile:
       promise "^7.1.1"
       request "^2.83.0"
       source-map "~0.6.0"
+  
+  linkify-it@^2.0.3:
+    version "2.1.0"
+    resolved "https://registry.yarnpkg.com/linkify-it/-/linkify-it-2.1.0.tgz#c4caf38a6cd7ac2212ef3c7d2bde30a91561f9db"
+    integrity sha512-4REs8/062kV2DSHxNfq5183zrqXMl7WP0WzABH9IeJI+NLm429FgE1PDecltYfnOoFDFlZGh2T8PfZn0r+GTRg==
+    dependencies:
+      uc.micro "^1.0.1"
   
   listr-silent-renderer@^1.1.1:
     version "1.1.1"
@@ -6467,6 +6509,17 @@ Lockfile:
       prop-types "^15.6.2"
       scheduler "^0.13.1"
   
+  react-draft-wysiwyg@^1.13.1:
+    version "1.13.1"
+    resolved "https://registry.yarnpkg.com/react-draft-wysiwyg/-/react-draft-wysiwyg-1.13.1.tgz#ae1cb99ee469d7d603aa85cee78f54f577e11a50"
+    integrity sha512-BKsj4fgBICDUlTGHHni42EZFemXLeoCLhzYv4wZgQLL0kpeiXOT8nLkyxCCkYrA/vNfRtDiLyPH6cLFCMAI6UA==
+    dependencies:
+      classnames "^2.2.5"
+      draftjs-utils "^0.9.3"
+      html-to-draftjs "^1.4.0"
+      linkify-it "^2.0.3"
+      prop-types "^15.6.0"
+  
   react-error-overlay@4.0.0:
     version "4.0.0"
     resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.0.tgz#d198408a85b4070937a98667f500c832f86bd5d4"
@@ -7634,6 +7687,11 @@ Lockfile:
     version "0.7.19"
     resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.19.tgz#94151be4c0a7fb1d001af7022fdaca4642659e4b"
     integrity sha512-T3PVJ6uz8i0HzPxOF9SWzWAlfN/DavlpQqepn22xgve/5QecC+XMCAtmUNnY7C9StehaV6exjUCI801lOI7QlQ==
+  
+  uc.micro@^1.0.1:
+    version "1.0.6"
+    resolved "https://registry.yarnpkg.com/uc.micro/-/uc.micro-1.0.6.tgz#9c411a802a409a91fc6cf74081baba34b24499ac"
+    integrity sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==
   
   uglify-es@^3.3.4:
     version "3.3.9"
