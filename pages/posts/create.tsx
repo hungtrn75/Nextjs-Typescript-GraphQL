@@ -1,6 +1,6 @@
 import { NextFunctionComponent } from "next";
 import React from "react";
-import EditorComponent from "../../components/editor/Editor";
+import EditorComponent from "../../components/editor/EditorHook";
 
 // type Props = {
 //   items: IDataObject[];
